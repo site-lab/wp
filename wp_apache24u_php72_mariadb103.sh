@@ -767,7 +767,7 @@ EOF
         start_message
         echo "wp-config-sample.phpを変更"
         echo "mv wp-config-sample.php wp-config.php"
-        mv wp-config-sample.php wp-config.php
+        mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
         end_message
 
 
