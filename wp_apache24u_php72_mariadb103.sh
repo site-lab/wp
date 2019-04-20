@@ -747,6 +747,12 @@ EOF
         echo "WordPressのダウンロードと展開をします"
         wget https://ja.wordpress.org/latest-ja.zip
         unzip latest-ja.zip
+        echo "WordPressのファイルをコピー"
+        echo "cp -R wordpress/* /var/www/html/"
+        cp -R wordpress/* /var/www/html/
+        echo "ファイル一覧の表示"
+        echo "ls -all /var/www/html/"
+        ls -all /var/www/html/
         end_message
 
 
