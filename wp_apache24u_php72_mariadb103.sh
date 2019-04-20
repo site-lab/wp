@@ -112,6 +112,13 @@ EOF
         yum -y update
         end_message
 
+        #Postfixのインストール
+        start_message
+        echo "Postfixのインストール"
+        yum -y install postfix
+        end_message
+
+
         #Nghttp2のインストール
         start_message
         echo "Nghttp2のインストール"
@@ -768,6 +775,10 @@ EOF
         echo "wp-config-sample.phpを変更"
         echo "mv wp-config-sample.php wp-config.php"
         mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+        echo "データベースなどの設定を書き換え"
+        sed -i -e "s|define('DB_NAME', 'database_name_here');|define('DB_NAME', 'centos');|" /var/www/html/wp-config.php
+        sed -i -e "s|define('DB_USER', 'username_here');|define('DB_USER', 'centos');|" /var/www/html/wp-config.php
+        sed -i -e "s|define('DB_PASSWORD', 'password_here');|define('DB_PASSWORD', '${UPASSWORD}');|" /var/www/html/wp-config.php
         end_message
 
 
