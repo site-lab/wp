@@ -797,12 +797,21 @@ EOF
         systemctl status mariadb.service
         end_message
 
+        #Postfixの起動
+        start_message
+        systemctl start postfix.service
+        systemctl status postfix.service
+        end_message
+
+
         #自動起動の設定
         start_message
         systemctl enable mariadb
         systemctl enable httpd
+        systemctl enable postfix
         systemctl list-unit-files --type=service | grep mariadb
         systemctl list-unit-files --type=service | grep httpd
+        systemctl list-unit-files --type=service | grep postfix
         end_message
         #パスワード設定
         start_message
