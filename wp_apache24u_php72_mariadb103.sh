@@ -759,10 +759,16 @@ EOF
         #所有者の変更
         start_message
         echo "ドキュメントルートの所有者をcentos、グループをapacheにします"
-        chown "-R centos:apache /var/www/html"
+        echo "-R centos:apache /var/www/html"
         chown -R centos:apache /var/www/html
         end_message
 
+        #configファイルの作成
+        start_message
+        echo "wp-config-sample.phpを変更"
+        echo "mv wp-config-sample.php wp-config.php"
+        mv wp-config-sample.php wp-config.php
+        end_message
 
 
         # apacheの起動
