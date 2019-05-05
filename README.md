@@ -1,2 +1,2 @@
-# wp
-wordpressのリポジトリ
+# WordPress
+wordpressのインストールシェルスクリプト
